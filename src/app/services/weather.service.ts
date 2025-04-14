@@ -2,13 +2,11 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
-import { environment } from '../../environments/environment'; // actual API key
-
 
 @Injectable({ providedIn: 'root' }) // Makes this service available app-wide via dependency injection
 export class WeatherService {
-  // OpenWeatherMap API key (replace or secure in environment files for production)
-  private apiKey = environment.openWeatherApiKey; // actual API key
+  // OpenWeatherMap API key 
+  private apiKey = 'f01325cf86822165168a704076fdf5ca'; // actual API key
 
   // Base URL for weather data API
   private apiUrl = 'https://api.openweathermap.org/data/2.5/weather';
