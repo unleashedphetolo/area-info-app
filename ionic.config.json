@@ -1,0 +1,7 @@
+{
+  "name": "area-info-app",
+  "integrations": {
+    "capacitor": {}
+  },
+  "type": "angular-standalone"
+}

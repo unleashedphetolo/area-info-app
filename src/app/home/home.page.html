@@ -1,0 +1,65 @@
+<!-- App Header with a toolbar and title -->
+<ion-header>
+  <ion-toolbar color="primary">
+    <ion-title>🌤️ Area Info Lookup</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<!-- Main content area with default Ionic padding -->
+<ion-content class="ion-padding">
+
+  <!-- Search bar container with input and button -->
+  <div class="search-container">
+    <ion-item lines="full" class="input-wrapper">
+      <!-- Two-way bound input for city name -->
+      <ion-input placeholder="Enter city name" [(ngModel)]="city"></ion-input>
+      
+      <!-- Button to trigger weather search -->
+      <ion-button fill="outline" color="primary" (click)="searchWeather()">Search</ion-button>
+    </ion-item>
+  </div>
+
+  <!-- Weather information card, shown only if weatherData is available -->
+  <div *ngIf="weatherData" class="card-wrapper">
+    <ion-card class="weather-card">
+      <ion-card-header>
+        <!-- City name as the card title -->
+        <ion-card-title>{{ weatherData.name }}</ion-card-title>
+      </ion-card-header>
+
+      <ion-card-content>
+        <!-- Display temperature information -->
+        <p><strong>🌡️ Temperature:</strong> {{ weatherData.main.temp }} °C</p>
+        
+        <!-- Display weather condition description -->
+        <p><strong>🌦️ Condition:</strong> {{ weatherData.weather[0].description }}</p>
+        
+        <!-- Display wind speed -->
+        <p><strong>💨 Wind Speed:</strong> {{ weatherData.wind.speed }} m/s</p>
+        
+        <!-- Button to save current city to favorites -->
+        <ion-button expand="block" color="success" (click)="saveToFavorites()">
+          ❤️ Save to Favorites
+        </ion-button>
+      </ion-card-content>
+    </ion-card>
+  </div>
+
+  <!-- List of favorite cities, displayed only if any favorites are saved -->
+  <ion-list *ngIf="favoriteWeather.length > 0">
+    <ion-list-header color="secondary">
+      <ion-label>⭐ Favorite Cities</ion-label>
+    </ion-list-header>
+
+    <!-- Loop through and display each favorite city's weather data -->
+    <ion-item *ngFor="let city of favoriteWeather">
+      <ion-label>
+        <!-- Display the name of the city -->
+        <h2>{{ city.name }}</h2>
+        
+        <!-- Display temperature and weather description for each favorite city -->
+        <p>🌡️ {{ city.main.temp }} °C | 🌦️ {{ city.weather[0].description }}</p>
+      </ion-label>
+    </ion-item>
+  </ion-list>
+</ion-content>

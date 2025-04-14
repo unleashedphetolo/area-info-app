@@ -1,0 +1,113 @@
+/* =============================
+   Search Container Styles
+============================= */
+
+/* Container for the search input, centers content horizontally and adds top margin */
+.search-container {
+  margin-top: 10px;
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  align-items: center;
+}
+
+/* Wrapper for the input field, ensures responsive width with a max limit */
+.input-wrapper {
+  width: 100%;
+  max-width: 600px;
+}
+
+/* =============================
+   Card Styling
+============================= */
+
+/* Wrapper for the weather card, centers the card and adds spacing from top */
+.card-wrapper {
+  display: flex;
+  justify-content: center;
+  margin-top: 20px;
+  flex-direction: column;
+  align-items: center;
+}
+
+/* Weather card styling, makes it responsive and restricts maximum width */
+.weather-card {
+  width: 100%;
+  max-width: 600px;
+  margin: 0 auto;
+}
+
+/* Title styling within the weather card for improved readability */
+ion-card-title {
+  font-size: 1.4rem;
+  color: #333;
+}
+
+/* =============================
+   Button Styling
+============================= */
+
+/* Add top margin to success-colored buttons to separate them from other elements */
+ion-button[color='success'] {
+  margin-top: 10px;
+}
+
+/* =============================
+   List Styling
+============================= */
+
+/* Styling for list headers, used to separate favorite section with clear emphasis */
+ion-list-header {
+  margin-top: 30px;
+  font-size: 1.2rem;
+  font-weight: bold;
+}
+
+/* =============================
+   Responsive Styles
+============================= */
+
+/* Ensure the layout is mobile-friendly and adjusts accordingly */
+@media (max-width: 600px) {
+  /* Adjusting font sizes for smaller screens */
+  ion-card-title {
+    font-size: 1.2rem;
+  }
+
+  .input-wrapper {
+    max-width: 100%;
+    padding: 0 10px; /* Adding padding for mobile view */
+  }
+
+  .weather-card {
+    max-width: 100%;
+    margin: 0 10px; /* Adding some margin for mobile */
+  }
+
+  /* Adjust the layout of the favorite cities list */
+  ion-list-header {
+    font-size: 1rem;
+  }
+}
+
+/* Tablet view */
+@media (min-width: 600px) and (max-width: 900px) {
+  ion-card-title {
+    font-size: 1.3rem;
+  }
+
+  .weather-card {
+    max-width: 80%;
+  }
+}
+
+/* Desktop view */
+@media (min-width: 900px) {
+  ion-card-title {
+    font-size: 1.4rem;
+  }
+
+  .weather-card {
+    max-width: 600px;
+  }
+}
