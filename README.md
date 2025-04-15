@@ -37,7 +37,7 @@ https://area-info-app.vercel.app/
 ### 1. Clone the repository
 
 ```bash
-git clone https://github.com/your-username/area-info-lookup.git
+git clone https://github.com/unleashedphetolo/area-info-app.git
 cd area-info-app
 Run the app locally
 ionic serve
