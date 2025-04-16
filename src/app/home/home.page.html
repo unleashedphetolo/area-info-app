@@ -1,5 +1,5 @@
 <!-- App Header with a toolbar and title -->
-<ion-header>
+<ion-header class="header">
   <ion-toolbar color="primary">
     <ion-title>🌤️ Area Info Lookup</ion-title>
   </ion-toolbar>
@@ -8,16 +8,29 @@
 <!-- Main content area with default Ionic padding -->
 <ion-content class="ion-padding">
 
-  <!-- Search bar container with input and button -->
+  <!-- Search bar container with input and button side by side -->
   <div class="search-container">
-    <ion-item lines="full" class="input-wrapper">
-      <!-- Two-way bound input for city name -->
-      <ion-input placeholder="Enter city name" [(ngModel)]="city"></ion-input>
-      
-      <!-- Button to trigger weather search -->
-      <ion-button fill="outline" color="primary" (click)="searchWeather()">Search</ion-button>
-    </ion-item>
+    <div class="search-row">
+      <ion-input 
+        class="search-input" 
+        placeholder="Enter city name" 
+        [(ngModel)]="city">
+      </ion-input>
+
+      <ion-button 
+        class="search-button" 
+        fill="outline" 
+        color="primary" 
+        (click)="searchWeather()">
+        Search
+      </ion-button>
+    </div>
   </div>
+
+  <!-- Recent Search History -->
+  <ion-chip *ngFor="let recent of recentSearches" (click)="city = recent">
+    <ion-label>{{ recent }}</ion-label>
+  </ion-chip>
 
   <!-- Weather information card, shown only if weatherData is available -->
   <div *ngIf="weatherData" class="card-wrapper">
@@ -60,6 +73,9 @@
         <!-- Display temperature and weather description for each favorite city -->
         <p>🌡️ {{ city.main.temp }} °C | 🌦️ {{ city.weather[0].description }}</p>
       </ion-label>
+      <ion-button fill="clear" color="danger" slot="end" (click)="deleteFavorite(city.name)">
+        🗑️
+      </ion-button>
     </ion-item>
   </ion-list>
 </ion-content>

@@ -1,21 +1,56 @@
 /* =============================
    Search Container Styles
 ============================= */
+.header {
+  background-color: rgb(42, 67, 180);
+  color: white;
+  padding: 18px ;
+  font-weight: 700;
+  font-size: large;
+  justify-items: center;
+}
 
 /* Container for the search input, centers content horizontally and adds top margin */
 .search-container {
-  margin-top: 10px;
-  display: flex;
-  justify-content: center;
-  flex-direction: column;
-  align-items: center;
+  width: 100%;
+  max-width: 700px;
+  margin: 2rem auto;
+  padding: 0 1rem;
 }
 
-/* Wrapper for the input field, ensures responsive width with a max limit */
-.input-wrapper {
-  width: 100%;
-  max-width: 600px;
+.search-row {
+  display: flex;
+  align-items: center;
+  border-bottom: 1px solid #ccc;
+  padding-bottom: 4px;
 }
+/* the input field, ensures responsive width with a max limit */
+
+.search-input {
+  flex: 1;
+  font-size: 16px;
+  --padding-start: 0;
+  --padding-end: 0;
+  --background: transparent;
+  --border-radius: 0;
+  --color: #333;
+  --placeholder-color: #888;
+  
+}
+
+.search-button {
+  margin-left: 12px;
+  height: 22px;
+  text-transform: uppercase;
+  font-weight: 500;
+  letter-spacing: 0.5px;
+  font-size: 14px;
+  color: #1a73e8;
+  border: 1px solid #1a73e8;
+  border-radius: 4px;
+}
+
+
 
 /* =============================
    Card Styling
@@ -49,6 +84,7 @@ ion-card-title {
 
 /* Add top margin to success-colored buttons to separate them from other elements */
 ion-button[color='success'] {
+  
   margin-top: 10px;
 }
 
